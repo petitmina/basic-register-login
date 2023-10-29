@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import Register from './page/Register';
 import Home from './page/Home';
+import Logout from './page/Logout';
+import Navbar from './components/Navbar';
 import { useEffect, useState } from 'react';
 import api from './utils/api';
 
@@ -28,10 +30,12 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar user={user}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login user={user} setUser={setUser}/>}/>
         <Route path='/register' element={<Register />}/>
+        <Route path='/logout' element={<Logout setUser={setUser}/>}/>
       </Routes>
     </div>
   );
